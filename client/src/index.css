@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #1e2330 transparent;
+  }
+
+  *::-webkit-scrollbar { width: 4px; height: 4px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb { background: #1e2330; border-radius: 2px; }
+  *::-webkit-scrollbar-thumb:hover { background: #2a2f3d; }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0a0c0f;
+    color: #c8d0e0;
+    font-family: 'JetBrains Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: rgba(0, 255, 157, 0.2);
+    color: #00ff9d;
+  }
+}
+
+@layer components {
+  .lab-panel {
+    @apply bg-lab-panel border border-lab-border rounded-lg;
+  }
+
+  .lab-panel-header {
+    @apply flex items-center gap-2 px-4 py-2.5 border-b border-lab-border;
+  }
+
+  .lab-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono;
+  }
+
+  .lab-btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-mono
+           border transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .lab-btn-primary {
+    @apply lab-btn bg-lab-green/10 border-lab-green/30 text-lab-green
+           hover:bg-lab-green/20 hover:border-lab-green/50;
+  }
+
+  .lab-btn-ghost {
+    @apply lab-btn bg-transparent border-lab-border text-lab-dim
+           hover:border-lab-muted hover:text-lab-text;
+  }
+
+  .lab-btn-danger {
+    @apply lab-btn bg-lab-red/10 border-lab-red/30 text-lab-red
+           hover:bg-lab-red/20;
+  }
+
+  .glow-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-lab-green animate-pulse-slow;
+    box-shadow: 0 0 6px #00ff9d;
+  }
+}
+
+/* React Flow overrides */
+.react-flow__background { background-color: #0a0c0f; }
+.react-flow__controls { background: #13161e; border: 1px solid #1e2330; border-radius: 8px; }
+.react-flow__controls-button {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #1e2330;
+  color: #5a6380;
+  fill: #5a6380;
+}
+.react-flow__controls-button:hover { background: #1e2330; fill: #00ff9d; }
+.react-flow__minimap { background: #13161e; border: 1px solid #1e2330; border-radius: 8px; }
